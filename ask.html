@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cat Chat</title>
+<style>
+  body {
+    background: #fff8f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px 20px;
+    color: #333;
+  }
+
+  .cat-img {
+    width: 220px;
+    max-width: 80vw;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    animation: bounce 3s ease-in-out infinite;
+    user-select: none;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .question {
+    margin: 25px 0 15px;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  button {
+    background-color: #ff9966;
+    border: none;
+    padding: 12px 32px;
+    margin: 0 12px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 10px #e07a45aa;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #e07a45;
+  }
+
+  .result {
+    margin-top: 25px;
+    font-size: 3rem;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYNfND9gVO0eAH--NuAz8fWb8YTZR6MhF40A&s"
+  alt="Cute cat"
+  class="cat-img"
+  aria-label="Cute cat asking to chat"
+/>
+
+<div class="question">?</div>
+
+<button id="yesBtn" aria-label="Yes, I want to chat">Yes</button>
+<button id="noBtn" aria-label="No, thanks">No</button>
+
+<div class="result" aria-live="polite"></div>
+
+<script>
+  const catImage = document.querySelector('.cat-img');
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const result = document.querySelector('.result');
+  const question = document.querySelector('.question');
+
+  yesBtn.onclick = () => {
+    
+    question.textContent = "Yay!😸";
+    result.textContent = "😺";
+    catImage.src = "https://png.pngtree.com/png-clipart/20240625/original/pngtree-happy-cat-meme-sticker-tshirt-illustration-png-image_15414568.png";
+    yesBtn.style.display = 'none';
+    noBtn.style.display = 'none';
+  };
+
+  noBtn.onclick = () => {
+    question.textContent = "...😿";
+    result.textContent = "😿";
+    catImage.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqorQrqz6-uKCfplC-nodw50gxpRlcasBHAQ&s"
+    yesBtn.style.display = 'none';
+    noBtn.style.display = 'none';
+  };
+</script>
+
+</body>
+</html>
